@@ -73,17 +73,16 @@ def environmental_animation():
     pygame.draw.circle(screen, YELLOW, (int(sun_x), int(sun_y)), 30)  # Sun
 
 # Physics Animation - Bouncing ball with realistic physics
-def bouncing_ball():
+def bouncing_ball(ball_y, speed):
     gravity = 0.5
     ground_level = 500
-    ball_y = 100
-    speed = 0
     speed += gravity
     ball_y += speed
     if ball_y >= ground_level:
         ball_y = ground_level
         speed *= -0.8  # Simulate bounce
     pygame.draw.circle(screen, RED, (400, int(ball_y)), 20)
+    return ball_y, speed
 
 # Typography Animation - Moving text
 def typography_animation():
@@ -160,6 +159,8 @@ def character_interaction():
 running = True
 x = 100  # Initial character position for walk cycle
 phase = 0  # Walk cycle phase
+ball_y = 100  # Initial ball position for bouncing
+speed = 0  # Initial speed for ball
 while running:
     screen.fill(WHITE)
     
@@ -173,7 +174,7 @@ while running:
     phase += 1
     character_transformation()
     environmental_animation()
-    bouncing_ball()
+    ball_y, speed = bouncing_ball(ball_y, speed)
     typography_animation()
     geometric_patterns()
     animal_movement()
