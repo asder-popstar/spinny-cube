@@ -8,8 +8,8 @@ R1 = 1.0  # Inner radius
 R2 = 2.0  # Outer radius
 K2 = 5.0  # Scaling factor for size
 K1 = 40    # Field of view (distance from the viewer)
-WIDTH = 3840  # Set to the horizontal resolution of your screen
-HEIGHT = 2160  # Set to the vertical resolution of your screen
+WIDTH = 3840  # Width of the display (3840 characters)
+HEIGHT = 2160  # Height of the display (2160 lines)
 
 # Function to clear the screen (works for Windows/Linux)
 def clear_screen():
