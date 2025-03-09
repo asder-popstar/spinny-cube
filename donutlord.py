@@ -8,10 +8,10 @@ R1 = 1.0  # Inner radius
 R2 = 2.0  # Outer radius
 K2 = 5.0  # Scaling factor for size
 K1 = 40    # Field of view (distance from the viewer)
-WIDTH = 120  # Width of the display (in characters)
-HEIGHT = 40  # Height of the display (in lines)
+WIDTH = 3840  # Set to the horizontal resolution of your screen
+HEIGHT = 2160  # Set to the vertical resolution of your screen
 
-# Function to clear screen (works for Windows/Linux)
+# Function to clear the screen (works for Windows/Linux)
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -19,7 +19,7 @@ def clear_screen():
 while True:
     clear_screen()
 
-    # Create a blank canvas (40x120 grid)
+    # Create a blank canvas (height x width grid)
     frame = [[' ' for _ in range(WIDTH)] for _ in range(HEIGHT)]
 
     # Loop through the angles j (around the donut) and i (for rotation)
