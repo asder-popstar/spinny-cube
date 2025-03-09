@@ -161,9 +161,15 @@ x = 100  # Initial character position for walk cycle
 phase = 0  # Walk cycle phase
 ball_y = 100  # Initial ball position for bouncing
 speed = 0  # Initial speed for ball
+
+print("Starting the game loop...")
+
 while running:
+    # Print a message to make sure the game is running
+    print("Running game loop...")
+
     screen.fill(WHITE)
-    
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -189,4 +195,11 @@ while running:
     pygame.display.flip()
     clock.tick(60)  # Limit frame rate to 60 FPS
 
+    # Check if the display has updated successfully
+    if not pygame.display.get_init():
+        print("Pygame display initialization failed!")
+        running = False
+
+# Quit Pygame
 pygame.quit()
+print("Pygame has quit successfully.")
